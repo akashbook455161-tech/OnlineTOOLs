@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akash Online Helping Tools</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --primary-hover: #4338ca;
+            --bg-color: #f3f4f6;
+            --surface-color: #ffffff;
+            --border-color: #e5e7eb;
+            --text-primary: #111827;
+            --text-secondary: #6b7280;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .main-container {
+            width: 100%;
+            max-width: 800px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0 0 0.5rem 0;
+            color: var(--text-primary);
+        }
+
+        header p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin: 0 0 3rem 0;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .tools-grid {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .tool-card {
+            background-color: var(--surface-color);
+            border-radius: 0.75rem;
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            width: 300px;
+            box-shadow: var(--shadow);
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .tool-card svg {
+            width: 4rem;
+            height: 4rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .tool-card h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .tool-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        footer {
+            margin-top: 4rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        <header>
+            <h1>Online Helping Tools</h1>
+            <p>A collection of simple, free tools to help with your daily document and image tasks.</p>
+        </header>
+
+        <main class="tools-grid">
+            
+            <a href="https://akashbook455161-tech.github.io/image-resizer/" class="tool-card">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
+                </svg>
+                <h2>Image Resizer</h2>
+                <p>Change dimensions, resize in any unit (px, cm, in, %), and convert image formats.</p>
+            </a>
+            
+            <a href="https://akashbook455161-tech.github.io/I-d-formate-tool/" class="tool-card">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l.052.052a15.034 15.034 0 001.996 1.838m15.399-1.838a15.034 15.034 0 01-1.996 1.838M14.25 7.5l.052.052a15.034 15.034 0 001.996 1.838m-15.399-1.838a15.034 15.034 0 011.996 1.838" />
+                </svg>
+                <h2>ID Card Formatter</h2>
+                <p>Arrange the front and back of any ID card into a single, printable document.</p>
+            </a>
+
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Akash Online Helping Tools</p>
+        </footer>
+    </div>
+
+</body>
+</html>
