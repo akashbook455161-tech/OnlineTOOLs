@@ -3,147 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akash Online Helping Tools</title>
+    <title>Futuristic Tool Hub</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Rajdhani:wght@500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #4f46e5;
-            --primary-hover: #4338ca;
-            --bg-color: #f3f4f6;
-            --surface-color: #ffffff;
-            --border-color: #e5e7eb;
-            --text-primary: #111827;
-            --text-secondary: #6b7280;
-            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.1);
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        html, body {
-            height: 100%;
-            margin: 0;
+            --primary-glow: #00c3ff;
+            --secondary-glow: #e600ff;
+            --dark-bg: #0a0a14;
+            --card-bg: rgba(20, 20, 35, 0.5);
+            --border-color: rgba(0, 195, 255, 0.3);
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-primary);
+            font-family: 'Rajdhani', sans-serif;
+            margin: 0;
+            padding: 0;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 2rem;
+            min-height: 100vh;
+            background-color: var(--dark-bg);
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(0, 195, 255, 0.1), transparent 30%),
+                radial-gradient(circle at 85% 30%, rgba(230, 0, 255, 0.1), transparent 30%);
+            color: #f0f0f0;
+            overflow: hidden;
+        }
+
+        .main-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+            color: #fff;
+            text-shadow: 
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 15px var(--primary-glow),
+                0 0 20px var(--primary-glow),
+                0 0 25px var(--primary-glow);
+            letter-spacing: 2px;
             text-align: center;
         }
 
-        .main-container {
-            width: 100%;
-            max-width: 800px;
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin: 0 0 0.5rem 0;
-            color: var(--text-primary);
-        }
-
-        header p {
-            font-size: 1.125rem;
-            color: var(--text-secondary);
-            margin: 0 0 3rem 0;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .tools-grid {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            padding: 20px;
         }
 
         .tool-card {
-            background-color: var(--surface-color);
-            border-radius: 0.75rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: var(--card-bg);
             border: 1px solid var(--border-color);
-            padding: 2rem;
-            width: 300px;
-            box-shadow: var(--shadow);
+            border-radius: 15px;
             text-decoration: none;
-            color: inherit;
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            color: #d0d0d0;
+            aspect-ratio: 1 / 1;
+            width: 200px;
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden;
         }
 
+        .tool-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 195, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .tool-card:hover::before {
+            left: 100%;
+        }
+        
         .tool-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
+            transform: translateY(-10px) scale(1.05);
+            border-color: var(--primary-glow);
+            box-shadow: 0 0 25px rgba(0, 195, 255, 0.6);
+            color: #fff;
         }
 
         .tool-card svg {
-            width: 4rem;
-            height: 4rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
+            width: 50%;
+            height: 50%;
+            stroke: var(--primary-glow);
+            stroke-width: 1.5;
+            fill: none;
+            transition: all 0.3s ease-in-out;
         }
 
-        .tool-card h2 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin: 0 0 0.5rem 0;
+        .tool-card:hover svg {
+            stroke: #fff;
+            filter: drop-shadow(0 0 10px var(--primary-glow));
         }
 
-        .tool-card p {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            margin: 0;
-            line-height: 1.5;
+        .tool-card span {
+            margin-top: 15px;
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
         }
 
-        footer {
-            margin-top: 4rem;
-            font-size: 0.875rem;
-            color: var(--text-secondary);
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .tool-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .tool-card {
+                width: 250px;
+            }
+            .main-title {
+                font-size: 2.5rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="main-container">
-        <header>
-            <h1>Online Helping Tools</h1>
-            <p>A collection of simple, free tools to help with your daily document and image tasks.</p>
-        </header>
+    <h1 class="main-title">Tool Hub</h1>
 
-        <main class="tools-grid">
-            
-            <a href="https://akashbook455161-tech.github.io/image-resizer/" class="tool-card">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
-                </svg>
-                <h2>Image Resizer</h2>
-                <p>Change dimensions, resize in any unit (px, cm, in, %), and convert image formats.</p>
-            </a>
-            
-            <a href="https://akashbook455161-tech.github.io/I-d-formate-tool/" class="tool-card">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l.052.052a15.034 15.034 0 001.996 1.838m15.399-1.838a15.034 15.034 0 01-1.996 1.838M14.25 7.5l.052.052a15.034 15.034 0 001.996 1.838m-15.399-1.838a15.034 15.034 0 011.996 1.838" />
-                </svg>
-                <h2>ID Card Formatter</h2>
-                <p>Arrange the front and back of any ID card into a single, printable document.</p>
-            </a>
+    <div class="tool-grid">
+        <a href="https://akashbook455161-tech.github.io/sing-on-photo/" class="tool-card">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-3">
+                <path d="M12 20h9"></path>
+                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                <rect x="2" y="13" width="20" height="8" rx="2"></rect>
+            </svg>
+            <span>Signature On Photo</span>
+        </a>
 
-        </main>
+        <a href="https://akashbook455161-tech.github.io/image-resizer/" class="tool-card">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12H3M12 21V3"></path>
+                <path d="M17 6l4 4-4 4"></path>
+                <path d="M7 18l-4-4 4-4"></path>
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            </svg>
+            <span>Image Resizer</span>
+        </a>
 
-        <footer>
-            <p>&copy; 2025 Akash Online Helping Tools</p>
-        </footer>
+        <a href="https://akashbook455161-tech.github.io/I-d-formate-tool/" class="tool-card">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                <circle cx="8" cy="10" r="2"></circle>
+                <line x1="12" y1="14" x2="20" y2="14"></line>
+                <line x1="12" y1="10" x2="20" y2="10"></line>
+                <line x1="2" y1="18" x2="22" y2="18"></line>
+            </svg>
+            <span>ID Formatter</span>
+        </a>
     </div>
 
 </body>
